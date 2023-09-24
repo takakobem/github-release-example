@@ -14,13 +14,6 @@ const PAGER_LIMIT = 2;
 const PAGER_COUNT = 100;
 const TITLE = "Chore: release " + formatDate(new Date());
 
-// Debug outputs
-console.log("BASE_BRANCH: ", BASE_BRANCH);
-console.log("HEAD_BRANCH: ", HEAD_BRANCH);
-console.log("OWNER: ", OWNER);
-console.log("REPO: ", REPO);
-console.log("TEMPLATE_FILE_NAME: ", TEMPLATE_FILE_NAME);
-
 async function getCommits() {
   const octokit = github.getOctokit(GITHUB_TOKEN);
   const promises = generatePromises(octokit, retriveCommits);
@@ -125,9 +118,6 @@ function formatDate(date) {
 function onlyUnique(value, index, array) {
   return value !== null && array.indexOf(value) === index;
 }
-
-const fileContent = fs.readFileSync(TEMPLATE_FILE_NAME, 'utf-8');
-const description = Mustache.render(fileContent, pullRequestList);
 
 async function createPullRequest(title, body){
   const octokit = github.getOctokit(GITHUB_TOKEN);
