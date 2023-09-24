@@ -26,7 +26,7 @@ The token is used for local debugging, so you have to set expiry and you can del
 ### Set local environment variables
 
 ```sh
-export GITHUB_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+export GITHUB_TOKEN=<GITHUB_TOKEN>
 export BASE_BRANCH=release
 export HEAD_BRANCH=main
 export OWNER=dhythm
@@ -36,6 +36,14 @@ export LABELS=release
 ```
 
 You can check environment variables by `printenv`.
+
+### Create manifest.json and config for release-please
+
+Run the following command, then release-please will make a PR to add both initial manifest and config.
+
+```sh
+npx release-please bootstrap --token=<GITHUB_TOKEN> --repo-url=dhythm/github-release-example --release-type=node
+```
 
 ## Development
 
@@ -53,7 +61,7 @@ Run the following command.
 
 ```sh
 act --list --container-architecture linux/amd64
-act --secret GITHUB_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -j release_pr --container-architecture linux/amd64
+act --secret GITHUB_TOKEN=<GITHUB_TOKEN> -j release_pr --container-architecture linux/amd64
 ```
 
 ## Getting started
@@ -66,9 +74,13 @@ You have to update `Settings` > `Actions` > `General` > `Workflow permissions`.
 
 ### Run workflow
 
-You can run the workflow in `Actions` > `Create a release pull-request` like the following,
+You can run the workflow in `Actions` > `Create a release pull-request` as the following,
 
-![Run workflow](./assets/img/Screenshot_2023-09-24_at_19.09.28.png)
+![Run workflow with plain action](./assets/img/Screenshot_2023-09-24_at_19.09.28.png)
+
+Also you can run the workflow `Create a release pull-request via release-please-cli` as below,
+
+![Run workflow with release-please](./assets/img/Screenshot_2023-09-24_at_21.59.54.png)
 
 ## References
 
