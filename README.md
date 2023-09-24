@@ -66,7 +66,7 @@ You have to update `Settings` > `Actions` > `General` > `Workflow permissions`.
 
 ### Run workflow
 
-You can run the workflow by,
+You can run the workflow in `Actions` > `Create a release pull-request` like the following,
 
 ![Run workflow](./assets/img/Screenshot_2023-09-24_at_19.09.28.png)
 

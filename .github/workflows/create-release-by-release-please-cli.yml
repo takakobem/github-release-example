@@ -1,0 +1,41 @@
+name: Create a release pull-request via release-please-cli
+on:
+  workflow_dispatch:
+    inputs:
+      release_version:
+        description: 'Release version'
+        required: false
+
+jobs:
+  release_via_release_please_cli:
+    runs-on: ubuntu-latest
+    name: release_via_release_please_cli
+    env:
+      GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
+      OWNER: ${{ github.repository_owner }}
+        # REPO: ${{ github.event.repository.name }}
+        # github.event.repository.name is null in act. See: https://github.com/actions/runner/issues/2473
+        # This bug will be fixed in https://github.com/nektos/act/issues/2019
+      REPO: github-release-example
+    steps:
+      - name: Check out Repository
+        id: check_out
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup Node JS
+        id: setup_node_js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: "npm"
+      - name: Install JS dependencies
+        run: |
+          npm install release-please -g
+      - name: Bootstrap release-please
+        run: |
+          release-please bootstrap --token=$GITHUB_TOKEN --repo-url=$OWNER/$REPO --release-type=node
+      - name: Create/Update release PRs
+        run: |
+          release-please release-pr --token=$GITHUB_TOKEN --repo-url=$OWNER/$REPO
+
