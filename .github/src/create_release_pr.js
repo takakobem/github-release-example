@@ -23,7 +23,7 @@ async function getCommits() {
     for(const response of responses) {
       if (response.status !== 200) return;
       let mergeCommits = response.data.commits.flatMap((commit) => {
-        // mainへのマージコミット
+        // Merge commit to main branch
         if (commit.parents.length === 2) {
           const match = commit.commit.message.match(regex);
           if (match !== undefined && match !== null) {
@@ -156,7 +156,7 @@ try {
       (response)=> {
         console.log("Request to create PR: #", response.data.number);
         const prId = response.data.number;
-        addLabelToPullRequest(prId, LABELS.split("\s")).then((response)=>{
+        addLabelToPullRequest(prId, LABELS.split(/\s/)).then((response)=>{
           console.log("Created labels: ",response);
         });
     });

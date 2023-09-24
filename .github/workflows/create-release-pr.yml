@@ -29,6 +29,9 @@ jobs:
           BASE_BRANCH: release
           HEAD_BRANCH: main
           OWNER: ${{ github.repository_owner }}
-          REPO: ${{ github.event.repository.name }}
+            # REPO: ${{ github.event.repository.name }}
+            # github.event.repository.name is null in act. See: https://github.com/actions/runner/issues/2473
+            # This bug will be fixed in https://github.com/nektos/act/issues/2019
+          REPO: github-release-example
           LABELS: "release"
           TEMPLATE: ".github/git-pr-release.template"
