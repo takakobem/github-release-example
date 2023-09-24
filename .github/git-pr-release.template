@@ -1,0 +1,16 @@
+# {{ Title }}
+
+## Fitures
+{{#fiture}}
+- [{{#checked}}x{{/checked}}{{^checked}} {{/checked}}] #{{number}} {{#assignees}}@{{login}}{{/assignees}}{{^assignees}}{{#user}}@{{login}}{{/user}}{{/assignees}}
+{{/fiture}}
+
+## Bug fixes
+{{#bug}}
+- [{{#checked}}x{{/checked}}{{^checked}} {{/checked}}] #{{number}} {{#assignees}}@{{login}}{{/assignees}}{{^assignees}}{{#user}}@{{login}}{{/user}}{{/assignees}}
+{{/bug}}
+
+## Othres
+{{#Others}}
+- [{{#checked}}x{{/checked}}{{^checked}} {{/checked}}] #{{number}} {{#assignees}}@{{login}}{{/assignees}}{{^assignees}}{{#user}}@{{login}}{{/user}}{{/assignees}}
+{{/Others}}
