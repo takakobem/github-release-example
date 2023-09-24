@@ -56,6 +56,19 @@ act --list --container-architecture linux/amd64
 act --secret GITHUB_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -j release_pr --container-architecture linux/amd64
 ```
 
+## Getting started
+
+### Settings
+
+You have to update `Settings` > `Actions` > `General` > `Workflow permissions`.
+
+![Workflow permissions](./assets/img/Screenshot_2023-09-24_at_19.07.52.png)
+
+### Run workflow
+
+You can run the workflow by,
+
+![Run workflow](./assets/img/Screenshot_2023-09-24_at_19.09.28.png)
 
 ## References
 
