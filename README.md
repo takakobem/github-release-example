@@ -82,6 +82,14 @@ Also you can run the workflow `Create a release pull-request via release-please-
 
 ![Run workflow with release-please](./assets/img/Screenshot_2023-09-24_at_21.59.54.png)
 
+### Troubleshooting
+
+You can run forcibly github release via the following command,
+
+```sh
+npx release-please github-release --token=<GITHUB_TOKEN> --repo-url=dhythm/github-release-example
+```
+
 ## References
 
 - https://tech.spacely.co.jp/entry/2023/07/26/100915
