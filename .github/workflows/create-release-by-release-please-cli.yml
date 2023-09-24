@@ -27,14 +27,11 @@ jobs:
         id: setup_node_js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: latest
           cache: "npm"
       - name: Install JS dependencies
         run: |
           npm install release-please -g
-      - name: Bootstrap release-please
-        run: |
-          release-please bootstrap --token=$GITHUB_TOKEN --repo-url=$OWNER/$REPO --release-type=node
       - name: Create/Update release PRs
         run: |
           release-please release-pr --token=$GITHUB_TOKEN --repo-url=$OWNER/$REPO

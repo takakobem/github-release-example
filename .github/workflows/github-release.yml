@@ -1,0 +1,31 @@
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+      # # The following action is same.
+      # push:
+      #   branches:
+      #     - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+name: release-please
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          command: github-release
+          release-type: node
+          package-name: github-release-example
+      - name: Deploy
+        if: ${{ steps.release.outputs.releases_created }}
+        run: |
+          echo "Deploying..."
+
