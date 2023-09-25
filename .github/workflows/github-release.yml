@@ -2,6 +2,10 @@ on:
   pull_request:
     branches:
       - main
+    # NOTES:
+    # To run release-please-action when senver commit merssages are inserted to branch after creating release-pr by release-please.
+    # Thus, cmmand is commented out in the below.
+    types: [synchronize, closed]
         # types: [closed]
         # # The following action is same.
         # push:
@@ -21,7 +25,7 @@ jobs:
     steps:
       - uses: google-github-actions/release-please-action@v3
         with:
-          command: github-release
+          # command: github-release
           release-type: node
           package-name: github-release-example
       - name: Deploy
