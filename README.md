@@ -72,15 +72,18 @@ You have to update `Settings` > `Actions` > `General` > `Workflow permissions`.
 
 ![Workflow permissions](./assets/img/Screenshot_2023-09-24_at_19.07.52.png)
 
-### Run workflow
+### Create a merge PR with template
 
 You can run the workflow in `Actions` > `Create a release pull-request` as the following,
 
 ![Run workflow with plain action](./assets/img/Screenshot_2023-09-24_at_19.09.28.png)
 
-Also you can run the workflow `Create a release pull-request via release-please-cli` as below,
+### Create a release PR with release-please
+
+You can run the workflow `Create a release pull-request via release-please-cli` as below,
 
 ![Run workflow with release-please](./assets/img/Screenshot_2023-09-24_at_21.59.54.png)
+
 
 ### Troubleshooting
 
