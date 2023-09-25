@@ -84,6 +84,8 @@ You can run the workflow `Create a release pull-request via release-please-cli` 
 
 ![Run workflow with release-please](./assets/img/Screenshot_2023-09-24_at_21.59.54.png)
 
+A release PR will be created. github-release will work after the PR is merged.
+
 
 ### Troubleshooting
 
