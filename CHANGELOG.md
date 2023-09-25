@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.1.0](https://github.com/dhythm/github-release-example/compare/v1.0.0...v1.1.0) (2023-09-25)
+
+
+### Features
+
+* add update-release-pr.yml and update github-release.yml ([92a0a0e](https://github.com/dhythm/github-release-example/commit/92a0a0e11c10fc3b6402941c8dc011b970958e2b))
+* comment out command option for release-please-action and set types instead ([0bc9a8d](https://github.com/dhythm/github-release-example/commit/0bc9a8dc5326983e0019d5158cdc20770e805fe8))
+* update README for troubleshooting ([618dc7b](https://github.com/dhythm/github-release-example/commit/618dc7b83c6aff386033093d406f967e00378a2e))
+
+
+### Bug Fixes
+
+* comment some code out ([f333582](https://github.com/dhythm/github-release-example/commit/f333582c29b4a1ec4328d943e21ccb8720e2ca89))
+* update README.md ([e9592e7](https://github.com/dhythm/github-release-example/commit/e9592e7c67315100a969b26cc998a3e23a073bed))
+
 ## 1.0.0 (2023-09-24)
 
 
