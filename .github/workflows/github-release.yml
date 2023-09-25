@@ -2,7 +2,7 @@ on:
   pull_request:
     branches:
       - main
-        # types: [closed]
+    types: [closed]
         # # The following action is same.
         # push:
         #   branches:
