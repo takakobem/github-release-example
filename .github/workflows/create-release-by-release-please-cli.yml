@@ -33,6 +33,11 @@ jobs:
         run: |
           npm install release-please -g
       - name: Create/Update release PRs
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.release_version == ''
         run: |
           release-please release-pr --token=$GITHUB_TOKEN --repo-url=$OWNER/$REPO
+      - name: Create/Update a specific release PRs
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.release_version != ''
+        run: |
+          release-please release-pr --release-as=${{ github.event.inputs.release_version }} --token=$GITHUB_TOKEN --repo-url=$OWNER/$REPO
 

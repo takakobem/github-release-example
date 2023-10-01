@@ -13,9 +13,11 @@ jobs:
   update-release-pr:
     runs-on: ubuntu-latest
     steps:
-      - uses: google-github-actions/release-please-action@v3
-        with:
-          command: release-pr
-          release-type: node
-          package-name: github-release-example
+      - run: echo "test"
+        if: github.event.action === 'synchronize'
+      # - uses: google-github-actions/release-please-action@v3
+      #   with:
+      #     command: release-pr
+      #     release-type: node
+      #     package-name: github-release-example
 
