@@ -87,6 +87,11 @@ You can run the workflow `Create a release pull-request via release-please-cli` 
 A release PR will be created. github-release will work after the PR is merged.
 A release PR is updated if new commit(s) is pushed into main branch before the release-pr is merged.
 
+#### Release with a specific version
+
+[The official doc](https://github.com/googleapis/release-please/blob/main/docs/cli.md) doesn't explain but release-please CLI supports `--release-as` option. See [code](https://github.com/googleapis/release-please/blob/a55a85c2384f088f4a7a71ff8a9d4a3c50789bef/src/bin/release-please.ts#L261).
+
+You can pass a specific version from GitHub Actions workflow.
 
 ### Troubleshooting
 
