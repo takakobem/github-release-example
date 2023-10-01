@@ -13,6 +13,7 @@ jobs:
   update-release-pr:
     runs-on: ubuntu-latest
     steps:
+      - run: echo "${{ toJSON(github) }}"
       - uses: google-github-actions/release-please-action@v3
         if: ${{ contains(github.event.label.name, 'pending') }}
         with:
