@@ -65,13 +65,15 @@ act --secret GITHUB_TOKEN=<GITHUB_TOKEN> -j release_pr --container-architecture 
 ```
 
 `act` normally doesn't have GitHub CLI (`gh` command).
+We can use another image as ubuntu-latest like the below.
 
 ```sh
 act --secret GITHUB_TOKEN=<GITHUB_TOKEN> -j update-release-pr --container-architecture linux/amd64 -P ubuntu-latest=catthehacker/ubuntu:full-latest
 ```
 
 I recommend to run the command below first, after then run the command the above.
-Because the docker image is super big.
+Because the docker image is super big. (about 53GB)
+
 ```sh
 docker pull catthehacker/ubuntu:full-latest 
 ```
