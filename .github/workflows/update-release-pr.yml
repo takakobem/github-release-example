@@ -16,15 +16,15 @@ jobs:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-      - run: echo "${{ toJSON(github) }}"
+        #- run: echo "${{ toJSON(github) }}"
       - name: check PR existance
         id: check_pr
         run: |
           echo "count=$(gh pr list --state open --label 'autorelease: pending' | wc -l)" >> $GITHUB_OUTPUT
       - run: echo "${{steps.check_pr.outputs.count}}"
-        # - uses: google-github-actions/release-please-action@v3
-        #   if: ${{ contains(github.event.label.name, 'pending') }}
-        #   with:
-        #     command: release-pr
-        #     release-type: node
-        #     package-name: github-release-example
+      - uses: google-github-actions/release-please-action@v3
+        if: ${{ steps.check_pr.outputs.count > 0 }}
+        with:
+          command: release-pr
+          release-type: node
+          package-name: github-release-example
