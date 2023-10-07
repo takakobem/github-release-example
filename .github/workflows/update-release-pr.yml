@@ -13,11 +13,15 @@ jobs:
   update-release-pr:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - run: echo "${{ toJSON(github) }}"
-      - uses: google-github-actions/release-please-action@v3
-        if: ${{ contains(github.event.label.name, 'pending') }}
-        with:
-          command: release-pr
-          release-type: node
-          package-name: github-release-example
-
+      - name: check PR existance
+        id: check_pr
+        run: |
+          echo "::set-output name=count::$(gh pr list --state open --label 'autorelease: pending' | wc -l)"
+        # - uses: google-github-actions/release-please-action@v3
+        #   if: ${{ contains(github.event.label.name, 'pending') }}
+        #   with:
+        #     command: release-pr
+        #     release-type: node
+        #     package-name: github-release-example
