@@ -21,7 +21,6 @@ jobs:
         id: check_pr
         run: |
           echo "count=$(gh pr list --state open --label 'autorelease: pending' | wc -l)" >> $GITHUB_OUTPUT
-      - run: echo "${{steps.check_pr.outputs.count}}"
       - uses: google-github-actions/release-please-action@v3
         if: ${{ steps.check_pr.outputs.count > 0 }}
         with:
