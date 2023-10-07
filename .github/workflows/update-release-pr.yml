@@ -12,6 +12,8 @@ name: update-release-pr
 jobs:
   update-release-pr:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - run: echo "${{ toJSON(github) }}"
