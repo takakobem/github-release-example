@@ -20,7 +20,7 @@ jobs:
       - name: check PR existance
         id: check_pr
         run: |
-          echo "::set-output name=count::$(gh pr list --state open --label 'autorelease: pending' | wc -l)"
+          echo "count=$(gh pr list --state open --label 'autorelease: pending' | wc -l)" >> $GITHUB_OUTPUT
         # - uses: google-github-actions/release-please-action@v3
         #   if: ${{ contains(github.event.label.name, 'pending') }}
         #   with:
