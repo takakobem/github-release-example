@@ -65,7 +65,7 @@ act --secret GITHUB_TOKEN=<GITHUB_TOKEN> -j release_pr --container-architecture 
 ```
 
 `act` normally doesn't have GitHub CLI (`gh` command).
-We can use another image as ubuntu-latest like the below.
+We can use another image as ubuntu-latest to simulate GitHub Actions with `gh` command like the below.
 
 ```sh
 act --secret GITHUB_TOKEN=<GITHUB_TOKEN> -j update-release-pr --container-architecture linux/amd64 -P ubuntu-latest=catthehacker/ubuntu:full-latest
