@@ -5,6 +5,9 @@ on:
       release_version:
         description: 'Release version'
         required: false
+      last_release_sha:
+        description: 'Last release SHA'
+        required: false
 
 jobs:
   release_via_release_please_cli:
@@ -33,11 +36,7 @@ jobs:
         run: |
           npm install release-please -g
       - name: Create/Update release PRs
-        if: github.event_name == 'workflow_dispatch' && github.event.inputs.release_version == ''
+        if: github.event_name == 'workflow_dispatch'
         run: |
-          release-please release-pr --token=$GITHUB_TOKEN --repo-url=$OWNER/$REPO
-      - name: Create/Update a specific release PRs
-        if: github.event_name == 'workflow_dispatch' && github.event.inputs.release_version != ''
-        run: |
-          release-please release-pr --release-as=${{ github.event.inputs.release_version }} --token=$GITHUB_TOKEN --repo-url=$OWNER/$REPO
+          release-please release-pr ${{ github.event.inputs.release_version && format('--release-as={0}', github.event.inputs.release_version)  || '' }} ${{ github.event.inputs.last_release_sha && format('--last-release-sha={0}', github.event.inputs.last_release_sha) || '' }} --token=$GITHUB_TOKEN --repo-url=$OWNER/$REPO
 
