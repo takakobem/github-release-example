@@ -38,5 +38,5 @@ jobs:
       - name: Create/Update release PRs
         if: github.event_name == 'workflow_dispatch'
         run: |
-          release-please release-pr ${{ github.event.inputs.release_version && format('--release-as={0}', github.event.inputs.release_version)  || '' }} ${{ github.event.inputs.last_release_sha && format('--last-release-sha={0}', github.event.inputs.last_release_sha) || '' }} --token=$GITHUB_TOKEN --repo-url=$OWNER/$REPO
+          release-please release-pr ${{ github.event.inputs.release_version && format('--release-as={0}', github.event.inputs.release_version)  || '' }} ${{ github.event.inputs.last_tag_sha && format('--latest-tag-sha={0}', github.event.inputs.last_tag_sha) || '' }} --token=$GITHUB_TOKEN --repo-url=$OWNER/$REPO
 
