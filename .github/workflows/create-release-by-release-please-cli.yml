@@ -5,7 +5,7 @@ on:
       release_version:
         description: 'Release version'
         required: false
-      last_release_sha:
+      last_tag_sha:
         description: 'Last release SHA'
         required: false
 
