@@ -64,7 +64,7 @@ act --list --container-architecture linux/amd64
 act --secret GITHUB_TOKEN=<GITHUB_TOKEN> -j release_pr --container-architecture linux/amd64
 ```
 
-`act` normally doesn't have GitHub CLI (`gh` command).
+The default docker image in `act` doesn't have GitHub CLI (`gh` command).
 We can use another image as ubuntu-latest to simulate GitHub Actions with `gh` command like the below.
 
 ```sh
