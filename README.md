@@ -115,6 +115,8 @@ You can run forcibly github release via the following command,
 npx release-please github-release --token=<GITHUB_TOKEN> --repo-url=dhythm/github-release-example
 ```
 
+You can fix the last release SHA to add `"last-release-sha": "xxxxxxx"` to `release-please-config.json`.
+
 ## References
 
 - https://tech.spacely.co.jp/entry/2023/07/26/100915
